@@ -3,9 +3,9 @@ __Seed builder__v0.1.8
   (Read_only) Builder helper
 */
 
-import fetch from 'cross-fetch';
-import * as Urls from 'settings/Urls';
-import * as Const from 'seed/helpers/redux_const';
+import fetch from "cross-fetch";
+import { API_URL } from "settings/Config";
+import * as Const from "seed/helpers/redux_const";
 
 class Action
 {
@@ -19,7 +19,7 @@ class Action
     this.id = id;
     this.path = path;
     this.state = state;
-    this.fetch = '';
+    this.fetch = "";
     for (let f of fetchData)
         this.fetch += `include[]=${f}&`;
   }
@@ -30,7 +30,7 @@ class Action
 
   getList = (action, filters, callback) =>
   {
-   let query = '';
+   let query = "";
     for (let filter in filters)
       if (filters[filter] != null)
         query += `filter{${filter}}=${filters[filter]}&`;
@@ -75,14 +75,14 @@ class Action
 
   request = (method, path, query, body, callback, toDisp) =>
   {
-    return disp =>
+    return (disp) =>
     {
       let args = {
         method: method,
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': `Token ${sessionStorage.getItem('token')}`
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": `Token ${sessionStorage.getItem("token")}`
         }
       };
 
@@ -90,15 +90,15 @@ class Action
         args["body"] = JSON.stringify(body);
 
 
-      return fetch(`${Urls.API_URL}/${this.path}${path}/?${this.fetch}${query}`, args)
-        .then(response =>
+      return fetch(`${API_URL}/${this.path}${path}/?${this.fetch}${query}`, args)
+        .then((response) =>
         {
           if (!response.ok) throw response;
-          return response.text()
+          return response.text();
         })
-        .then(text => 
+        .then((text) =>
         {
-          let json = {}
+          let json = {};
           try {
             json = JSON.parse(text);
           } catch (e) { }
@@ -109,7 +109,7 @@ class Action
               ok: true
             });
         })
-        .catch(error =>
+        .catch((error) =>
         {
          if (callback)
             callback({
@@ -119,8 +119,8 @@ class Action
               },
               ok: false
             });
-        })
-    }
+        });
+    };
   }
 
   /**
@@ -135,27 +135,27 @@ class Action
    === EVENTS (TO REDUCERS) ===
    */
 
-  onGetList = dataset => ({
+  onGetList = (dataset) => ({
     type: `${this.id}_${Const.GET_LIST}`,
     dataset: dataset
   });
 
-  onGetDetails = data => ({
+  onGetDetails = (data) => ({
     type: `${this.id}_${Const.GET_DETAILS}`,
     data: data
   });
 
-  onPostData = data => ({
+  onPostData = (data) => ({
     type: `${this.id}_${Const.POST}`,
     data: data
   });
 
-  onPutData = data => ({
+  onPutData = (data) => ({
     type: `${this.id}_${Const.PUT}`,
     data: data
   });
 
-  onDeleteData = data => ({
+  onDeleteData = (data) => ({
     type: `${this.id}_${Const.DELETE}`,
     id: data.id
   });

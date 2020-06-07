@@ -28,7 +28,8 @@ export const BUSINESS = `
     }
   }
 }
-`
+`;
+
 export const SET_BUSINESS = `
 mutation Set(
   $id: Int!,
@@ -88,7 +89,7 @@ mutation Set(
     }
   }
 }
-`
+`;
 
 export const SAVE_BUSINESS = `
 mutation Save(
@@ -129,7 +130,7 @@ mutation Save(
     }
   }
 }
-`
+`;
 
 export const DELETE_BUSINESS = `
 mutation Delete($id: Int!)
@@ -139,7 +140,7 @@ mutation Delete($id: Int!)
     id
   }
 }
-`
+`;
 
 export const CATEGORY = `
 {
@@ -148,7 +149,8 @@ export const CATEGORY = `
     name
   }
 }
-`
+`;
+
 export const SET_CATEGORY = `
 mutation Set(
   $id: Int!,
@@ -165,7 +167,7 @@ mutation Set(
     }
   }
 }
-`
+`;
 
 export const SAVE_CATEGORY = `
 mutation Save(
@@ -180,7 +182,7 @@ mutation Save(
     }
   }
 }
-`
+`;
 
 export const DELETE_CATEGORY = `
 mutation Delete($id: Int!)
@@ -190,7 +192,7 @@ mutation Delete($id: Int!)
     id
   }
 }
-`
+`;
 
 export const STAT = `
 {
@@ -206,7 +208,8 @@ export const STAT = `
     }
   }
 }
-`
+`;
+
 export const SET_STAT = `
 mutation Set(
   $id: Int!,
@@ -240,7 +243,7 @@ mutation Set(
     }
   }
 }
-`
+`;
 
 export const SAVE_STAT = `
 mutation Save(
@@ -265,7 +268,7 @@ mutation Save(
     }
   }
 }
-`
+`;
 
 export const DELETE_STAT = `
 mutation Delete($id: Int!)
@@ -275,7 +278,7 @@ mutation Delete($id: Int!)
     id
   }
 }
-`
+`;
 
 export const USER = `
 {
@@ -286,12 +289,10 @@ export const USER = `
     lastName
     email
     isActive
-    userType {
-      id
-    }
   }
 }
-`
+`;
+
 export const SET_USER = `
 mutation Set(
   $id: Int!,
@@ -301,7 +302,6 @@ mutation Set(
   $email: String,
   $isActive: Boolean,
   $password: String,
-  $userType: Int,
 )
 {
   setUser(
@@ -312,7 +312,6 @@ mutation Set(
     email: $email,
     isActive: $isActive,
     password: $password,
-    userType: $userType,
   ) {
     user {
       id
@@ -321,13 +320,10 @@ mutation Set(
       lastName
       email
       isActive
-      userType {
-        id
-      }
     }
   }
 }
-`
+`;
 
 export const SAVE_USER = `
 mutation Save(
@@ -337,7 +333,6 @@ mutation Save(
   $email: String!,
   $isActive: Boolean!,
   $password: String!,
-  $userType: Int!,
 )
 {
   saveUser(
@@ -347,14 +342,13 @@ mutation Save(
     email: $email,
     isActive: $isActive,
     password: $password,
-    userType: $userType,
   ) {
     user {
       id
     }
   }
 }
-`
+`;
 
 export const DELETE_USER = `
 mutation Delete($id: Int!)
@@ -364,7 +358,7 @@ mutation Delete($id: Int!)
     id
   }
 }
-`
+`;
 
 export const USER_TYPE = `
 {
@@ -373,7 +367,8 @@ export const USER_TYPE = `
     name
   }
 }
-`
+`;
+
 export const SET_USER_TYPE = `
 mutation Set(
   $id: Int!,
@@ -390,7 +385,7 @@ mutation Set(
     }
   }
 }
-`
+`;
 
 export const SAVE_USER_TYPE = `
 mutation Save(
@@ -405,7 +400,7 @@ mutation Save(
     }
   }
 }
-`
+`;
 
 export const DELETE_USER_TYPE = `
 mutation Delete($id: Int!)
@@ -415,5 +410,5 @@ mutation Delete($id: Int!)
     id
   }
 }
-`
+`;
 

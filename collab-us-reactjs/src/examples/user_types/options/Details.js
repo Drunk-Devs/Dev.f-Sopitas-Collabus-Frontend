@@ -1,10 +1,9 @@
-import React from 'react';
-import { useDelete } from 'seed/gql';
-import * as queries from 'seed/gql/queries';
-import { Link } from 'react-router-dom';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/user_types/options/Details.module.css';
+import React from "react";
+import cx from "classnames";
+import { useDelete } from "seed/gql";
+import * as queries from "seed/gql/queries";
+import { Link } from "react-router-dom";
+import styles from "resources/css/examples/user_types/options/Details.module.css";
 
 function UserTypeDetailsOptions(props)
 {
@@ -13,21 +12,21 @@ function UserTypeDetailsOptions(props)
 
     const [callDelete, qDelete] = useDelete(queries.DELETE_USER_TYPE,
     {
-      onCompleted: data =>
+      onCompleted: (data) =>
       {
-        const backUrl = url.substring(0, url.lastIndexOf('/'));
+        const backUrl = url.substring(0, url.lastIndexOf("/"));
         props.history.push(backUrl);
-       }
-    })
+      }
+    });
 
     const onClickDelete = () =>
-      callDelete({ id: user_type_id })
+      callDelete({ id: user_type_id });
 
     const onClickBack = () =>
     {
-      const backUrl = url.substring(0, url.lastIndexOf('/'));
+      const backUrl = url.substring(0, url.lastIndexOf("/"));
       props.history.push(backUrl);
-    }
+    };
 
     return (
       <div className={styles.module}>

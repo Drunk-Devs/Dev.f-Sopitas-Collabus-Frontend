@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
-import { useSave, useSet, useQuery, useDetail } from 'seed/gql'
-import * as queries from 'seed/gql/queries'
-import { Formik, Field } from 'formik';
-
-import MultiField from 'seed/components/helpers/MultiField'
-import FileField from 'seed/components/helpers/FileField'
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/categories/Form.module.css';
+import React, {useState} from "react";
+import cx from "classnames";
+import { useSave, useSet, useQuery, useDetail } from "seed/gql";
+import * as queries from "seed/gql/queries";
+import { Formik, Field } from "formik";
+import MultiField from "seed/components/helpers/MultiField";
+import FileField from "seed/components/helpers/FileField";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/categories/Form.module.css";
 
 function CategoryForm(props)
 {
@@ -19,12 +17,12 @@ function CategoryForm(props)
   const editMode = category_id != null;
 
   const saveOptions = {
-    onCompleted: data =>
+    onCompleted: (data) =>
     {
-      const backUrl = url.substring(0, url.lastIndexOf('/'));
+      const backUrl = url.substring(0, url.lastIndexOf("/"));
       props.history.push(backUrl);
     },
-    onError: error => setState({ error: 'An error has occurred, try again' })
+    onError: (error) => setState({ error: "An error has occurred, try again" })
   };
 
   const [callSave, qSave] = useSave(queries.SAVE_CATEGORY, saveOptions);
@@ -35,12 +33,12 @@ function CategoryForm(props)
   if (editMode && qCategory.loading) return <Loading />;
   if (editMode && qCategory.error) return "Error";
 
-  const onSubmit = values =>
+  const onSubmit = (values) =>
   {
     values.id = category_id;
     if (editMode) callSet(values);
     else callSave(values);
-  }
+  };
 
   const { category = {} } = qCategory.data;
 
@@ -51,7 +49,7 @@ function CategoryForm(props)
         <Formik
            initialValues={category}
            onSubmit={onSubmit}
-           render={f => (
+           render={(f) => (
 
         <form onSubmit={f.handleSubmit}>
           
@@ -59,17 +57,17 @@ function CategoryForm(props)
           <Field component="select" name="name.id"
             className={styles.ops} >
             <option value="">Select an option</option>
-            <option value='SALUD'>salud</option>
-            <option value='ENTRETENIMIENTO'>entretenimiento</option>
-            <option value='ABARROTES'>abarrotes</option>
-            <option value='CUIDADO PERSONAL'>cuidado personal</option>
-            <option value='BELLEZA'>belleza</option>
-            <option value='ACTIVIDAD FISICA'>actividad fisica</option>
-            <option value='CONSTRUCCION Y MANTENIMIENTO'>construccion y mantenimiento</option>
-            <option value='TRANSPORTE'>transporte</option>
-            <option value='RESTAURANTES'>restaurantes</option>
-            <option value='COMIDA'>comida</option>
-            <option value='CONTRATISTAS'>contratistas</option>
+            <option value="SALUD">salud</option>
+            <option value="ENTRETENIMIENTO">entretenimiento</option>
+            <option value="ABARROTES">abarrotes</option>
+            <option value="CUIDADO PERSONAL">cuidado personal</option>
+            <option value="BELLEZA">belleza</option>
+            <option value="ACTIVIDAD FISICA">actividad fisica</option>
+            <option value="CONSTRUCCION Y MANTENIMIENTO">construccion y mantenimiento</option>
+            <option value="TRANSPORTE">transporte</option>
+            <option value="RESTAURANTES">restaurantes</option>
+            <option value="COMIDA">comida</option>
+            <option value="CONTRATISTAS">contratistas</option>
           </Field>
           <br/>
           

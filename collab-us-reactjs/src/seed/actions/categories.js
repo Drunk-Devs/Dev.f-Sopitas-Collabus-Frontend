@@ -4,7 +4,7 @@ __Seed builder__v0.1.8
   Modify via builder
 */
 
-import Action from 'seed/helpers/action';
+import Action from "seed/helpers/action";
 
 class _Categories extends Action
 {
@@ -15,36 +15,36 @@ class _Categories extends Action
       ];
 
     super(
-      `CATEGORIES`,
-      `categories`,
-      state => state.categories,
+      "CATEGORIES",
+      "categories",
+      (state) => state.categories,
       fetch
-    )
+    );
   }
 
   getCategoryList(params = {}, callback)
   {
-    return this.getList('', params, callback);
+    return this.getList("", params, callback);
   }
 
   getCategoryDetails(categoryId, callback)
   {
-    return this.getDetails('', categoryId, callback);
+    return this.getDetails("", categoryId, callback);
   }
 
   saveCategory(category, callback)
   {
-    return this.postData('', category, callback);
+    return this.postData("", category, callback);
   }
 
   setCategory(categoryId, category, callback)
   {
-    return this.putData('', categoryId, category, callback);
+    return this.putData("", categoryId, category, callback);
   }
 
   deleteCategory(categoryId, callback)
   {
-    return this.deleteData('', categoryId, callback);
+    return this.deleteData("", categoryId, callback);
   }
 }
 

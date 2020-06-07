@@ -1,10 +1,8 @@
-import React from 'react';
-import { useDetail } from 'seed/gql'
-
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/categories/Details.module.css';
+import React from "react";
+import cx from "classnames";
+import { useDetail } from "seed/gql";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/categories/Details.module.css";
 
 const CATEGORY  = `
 {
@@ -12,17 +10,18 @@ const CATEGORY  = `
     name
   }
 }
-`
+`;
+
 function CategoryDetails(props)
 {
   const { category_id }  = props.match.params;
 
   const qCategory = useDetail(CATEGORY, category_id);
 
-  if (qCategory.loading) return <Loading />
-  if (qCategory.error) return "Error"
+  if (qCategory.loading) return <Loading />;
+  if (qCategory.error) return "Error";
 
-  const { category = {} } = qCategory.data
+  const { category = {} } = qCategory.data;
 
   return (
     <div className={styles.module}>

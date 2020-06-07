@@ -1,11 +1,9 @@
-import React from 'react';
-import { useQuery } from 'seed/gql'
-import { NavLink } from 'react-router-dom';
-
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/stats/List.module.css';
+import React from "react";
+import cx from "classnames";
+import { useQuery } from "seed/gql";
+import { NavLink } from "react-router-dom";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/stats/List.module.css";
 
 const STATS  = `
 {
@@ -19,7 +17,7 @@ const STATS  = `
     user { }
   }
 }
-`
+`;
 
 function StatList(props)
 {
@@ -27,10 +25,10 @@ function StatList(props)
 
   const qStats = useQuery(STATS);
 
-  if (qStats.loading) return <Loading />
-  if (qStats.error) return "Error"
+  if (qStats.loading) return <Loading />;
+  if (qStats.error) return "Error";
 
-  const { stats } = qStats.data
+  const { stats } = qStats.data;
 
   const statList = stats.map(item =>
     <NavLink

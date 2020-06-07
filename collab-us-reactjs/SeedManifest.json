@@ -3,17 +3,7 @@
   "models": [
     {
       "name": "user",
-      "attrs": [
-        {
-          "name": "user_type",
-          "type": "user_type",
-          "is_fk": true,
-          "card": {
-            "ref": "1",
-            "has": "0..*"
-          }
-        }
-      ]
+      "attrs": []
     },
     {
       "name": "business",
@@ -174,6 +164,16 @@
             "OWNER",
             "CLIENT"
           ]
+        },
+        {
+          "name": "user",
+          "type": "user[]",
+          "is_fk": true,
+          "card": {
+            "ref": "0..*",
+            "has": "1"
+          },
+          "write": false
         }
       ]
     }

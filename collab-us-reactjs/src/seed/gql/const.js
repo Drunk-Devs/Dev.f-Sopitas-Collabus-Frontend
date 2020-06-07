@@ -11,4 +11,4 @@ export const SINGULARS =
    "stats": "stat",
    "users": "user",
    "userTypes": "userType",
-}
+};

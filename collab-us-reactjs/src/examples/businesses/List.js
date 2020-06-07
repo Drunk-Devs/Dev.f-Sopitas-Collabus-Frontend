@@ -1,11 +1,9 @@
-import React from 'react';
-import { useQuery } from 'seed/gql'
-import { NavLink } from 'react-router-dom';
-
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/businesses/List.module.css';
+import React from "react";
+import cx from "classnames";
+import { useQuery } from "seed/gql";
+import { NavLink } from "react-router-dom";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/businesses/List.module.css";
 
 const BUSINESSES  = `
 {
@@ -26,7 +24,7 @@ const BUSINESSES  = `
     category { }
   }
 }
-`
+`;
 
 function BusinessList(props)
 {
@@ -34,10 +32,10 @@ function BusinessList(props)
 
   const qBusinesses = useQuery(BUSINESSES);
 
-  if (qBusinesses.loading) return <Loading />
-  if (qBusinesses.error) return "Error"
+  if (qBusinesses.loading) return <Loading />;
+  if (qBusinesses.error) return "Error";
 
-  const { businesses } = qBusinesses.data
+  const { businesses } = qBusinesses.data;
 
   const businessList = businesses.map(item =>
     <NavLink

@@ -4,7 +4,7 @@ __Seed builder__v0.1.8
   Modify via builder
 */
 
-import Action from 'seed/helpers/action';
+import Action from "seed/helpers/action";
 
 class _Businesses extends Action
 {
@@ -17,36 +17,36 @@ class _Businesses extends Action
       ];
 
     super(
-      `BUSINESSES`,
-      `businesses`,
-      state => state.businesses,
+      "BUSINESSES",
+      "businesses",
+      (state) => state.businesses,
       fetch
-    )
+    );
   }
 
   getBusinessList(params = {}, callback)
   {
-    return this.getList('', params, callback);
+    return this.getList("", params, callback);
   }
 
   getBusinessDetails(businessId, callback)
   {
-    return this.getDetails('', businessId, callback);
+    return this.getDetails("", businessId, callback);
   }
 
   saveBusiness(business, callback)
   {
-    return this.postData('', business, callback);
+    return this.postData("", business, callback);
   }
 
   setBusiness(businessId, business, callback)
   {
-    return this.putData('', businessId, business, callback);
+    return this.putData("", businessId, business, callback);
   }
 
   deleteBusiness(businessId, callback)
   {
-    return this.deleteData('', businessId, callback);
+    return this.deleteData("", businessId, callback);
   }
 }
 

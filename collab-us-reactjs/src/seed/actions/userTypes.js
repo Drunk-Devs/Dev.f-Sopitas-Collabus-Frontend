@@ -4,7 +4,7 @@ __Seed builder__v0.1.8
   Modify via builder
 */
 
-import Action from 'seed/helpers/action';
+import Action from "seed/helpers/action";
 
 class _UserTypes extends Action
 {
@@ -12,39 +12,40 @@ class _UserTypes extends Action
   {
     if (fetch == null)
       fetch = [
+        "user.*",
       ];
 
     super(
-      `USER_TYPES`,
-      `user_types`,
-      state => state.userTypes,
+      "USER_TYPES",
+      "user_types",
+      (state) => state.userTypes,
       fetch
-    )
+    );
   }
 
   getUserTypeList(params = {}, callback)
   {
-    return this.getList('', params, callback);
+    return this.getList("", params, callback);
   }
 
   getUserTypeDetails(userTypeId, callback)
   {
-    return this.getDetails('', userTypeId, callback);
+    return this.getDetails("", userTypeId, callback);
   }
 
   saveUserType(userType, callback)
   {
-    return this.postData('', userType, callback);
+    return this.postData("", userType, callback);
   }
 
   setUserType(userTypeId, userType, callback)
   {
-    return this.putData('', userTypeId, userType, callback);
+    return this.putData("", userTypeId, userType, callback);
   }
 
   deleteUserType(userTypeId, callback)
   {
-    return this.deleteData('', userTypeId, callback);
+    return this.deleteData("", userTypeId, callback);
   }
 }
 

@@ -1,25 +1,23 @@
-import React, { useEffect } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom'
-
-import BusinessPanel from 'examples/businesses/Panel';
-import CategoryPanel from 'examples/categories/Panel';
-import StatPanel from 'examples/stats/Panel';
-import UserPanel from 'examples/users/Panel';
-import UserTypePanel from 'examples/user_types/Panel';
-import Sidenav from 'examples/general/nav/Sidenav';
-import Topnav from 'examples/general/nav/Topnav';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/Home.module.css';
+import React, { useEffect } from "react";
+import cx from "classnames";
+import { Switch, Route, Redirect } from "react-router-dom";
+import BusinessPanel from "examples/businesses/Panel";
+import CategoryPanel from "examples/categories/Panel";
+import StatPanel from "examples/stats/Panel";
+import UserPanel from "examples/users/Panel";
+import UserTypePanel from "examples/user_types/Panel";
+import Sidenav from "examples/nav/Sidenav";
+import Topnav from "examples/nav/Topnav";
+import styles from "resources/css/examples/Home.module.css";
 
 function Home(props)
 {
   const { path } = props.match;
 
    useEffect(() => {
-     const userId = sessionStorage.getItem('id');
+     const userId = sessionStorage.getItem("id");
      if (userId == null)
-       return props.history.replace(`/examples/login`);
+       return props.history.replace("/examples/login");
    });
 
   return (

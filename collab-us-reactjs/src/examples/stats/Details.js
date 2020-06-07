@@ -1,10 +1,8 @@
-import React from 'react';
-import { useDetail } from 'seed/gql'
-
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/stats/Details.module.css';
+import React from "react";
+import cx from "classnames";
+import { useDetail } from "seed/gql";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/stats/Details.module.css";
 
 const STAT  = `
 {
@@ -18,17 +16,18 @@ const STAT  = `
     user { }
   }
 }
-`
+`;
+
 function StatDetails(props)
 {
   const { stat_id }  = props.match.params;
 
   const qStat = useDetail(STAT, stat_id);
 
-  if (qStat.loading) return <Loading />
-  if (qStat.error) return "Error"
+  if (qStat.loading) return <Loading />;
+  if (qStat.error) return "Error";
 
-  const { stat = {} } = qStat.data
+  const { stat = {} } = qStat.data;
 
   return (
     <div className={styles.module}>

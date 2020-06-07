@@ -1,11 +1,9 @@
-import React from 'react';
-import { useQuery } from 'seed/gql'
-import { NavLink } from 'react-router-dom';
-
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/users/List.module.css';
+import React from "react";
+import cx from "classnames";
+import { useQuery } from "seed/gql";
+import { NavLink } from "react-router-dom";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/users/List.module.css";
 
 const USERS  = `
 {
@@ -15,10 +13,9 @@ const USERS  = `
     lastName
     email
     isActive
-    userType { }
   }
 }
-`
+`;
 
 function UserList(props)
 {
@@ -26,10 +23,10 @@ function UserList(props)
 
   const qUsers = useQuery(USERS);
 
-  if (qUsers.loading) return <Loading />
-  if (qUsers.error) return "Error"
+  if (qUsers.loading) return <Loading />;
+  if (qUsers.error) return "Error";
 
-  const { users } = qUsers.data
+  const { users } = qUsers.data;
 
   const userList = users.map(item =>
     <NavLink

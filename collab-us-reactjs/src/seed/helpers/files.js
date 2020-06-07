@@ -3,19 +3,19 @@ __Seed builder__v0.1.8
   (Read_only) Builder helper
 */
 
-import $ from 'jquery';
-import * as Urls from 'settings/Urls';
+import $ from "jquery";
+import { API_URL } from "settings/Config";
 
 class Files
 {
   uploadFile(formWrapper, callback)
   {
-    return disp =>
+    return (disp) =>
     {
-      let url = `${Urls.API_URL}/files/`;
+      let url = `${API_URL}/files/`;
       $.ajax({
         url: url,
-        type: 'POST',
+        type: "POST",
         data: new FormData(formWrapper),
         cache: false,
         contentType: false,
@@ -25,23 +25,22 @@ class Files
           var myXhr = $.ajaxSettings.xhr();
           return myXhr;
         },
-        success: json =>
+        success: (json) =>
         {
           callback({
             body: json,
             ok: true
           });
         },
-        error: error =>
+        error: (error) =>
         {
           callback({
             body: error,
             ok: false
-          })
+          });
         }
       });
-
-    }
+    };
   }
 }
 

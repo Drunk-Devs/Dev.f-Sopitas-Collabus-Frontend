@@ -4,7 +4,7 @@ __Seed builder__v0.1.8
   Modify via builder
 */
 
-import Action from 'seed/helpers/action';
+import Action from "seed/helpers/action";
 
 class _Stats extends Action
 {
@@ -17,36 +17,36 @@ class _Stats extends Action
       ];
 
     super(
-      `STATS`,
-      `stats`,
-      state => state.stats,
+      "STATS",
+      "stats",
+      (state) => state.stats,
       fetch
-    )
+    );
   }
 
   getStatList(params = {}, callback)
   {
-    return this.getList('', params, callback);
+    return this.getList("", params, callback);
   }
 
   getStatDetails(statId, callback)
   {
-    return this.getDetails('', statId, callback);
+    return this.getDetails("", statId, callback);
   }
 
   saveStat(stat, callback)
   {
-    return this.postData('', stat, callback);
+    return this.postData("", stat, callback);
   }
 
   setStat(statId, stat, callback)
   {
-    return this.putData('', statId, stat, callback);
+    return this.putData("", statId, stat, callback);
   }
 
   deleteStat(statId, callback)
   {
-    return this.deleteData('', statId, callback);
+    return this.deleteData("", statId, callback);
   }
 }
 

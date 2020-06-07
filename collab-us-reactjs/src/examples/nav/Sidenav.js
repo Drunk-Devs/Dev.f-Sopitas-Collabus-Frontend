@@ -1,8 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/general/nav/Sidenav.module.css';
+import React from "react";
+import cx from "classnames";
+import { NavLink } from "react-router-dom";
+import styles from "resources/css/examples/nav/Sidenav.module.css";
 
 function Sidenav(props)
 {
@@ -57,7 +56,7 @@ function Sidenav(props)
           </li>
           <li>
             <NavLink
-              to={`/examples/logout`}
+              to={"/examples/logout"}
               className={cx(styles.item)}
               activeClassName={styles.active}>
               Logout

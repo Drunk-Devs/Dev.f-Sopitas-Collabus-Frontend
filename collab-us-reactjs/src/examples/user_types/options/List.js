@@ -1,8 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/user_types/options/List.module.css';
+import React from "react";
+import cx from "classnames";
+import { Link } from "react-router-dom";
+import styles from "resources/css/examples/user_types/options/List.module.css";
 
 function UserTypeListOptions(props)
 {

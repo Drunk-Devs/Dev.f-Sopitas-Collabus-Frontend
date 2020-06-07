@@ -1,21 +1,19 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-
-import StatDetails from 'examples/stats/Details';
-import StatList from 'examples/stats/List';
-import StatListOptions from 'examples/stats/options/List';
-import StatDetailsOptions from 'examples/stats/options/Details';
-import StatForm from 'examples/stats/Form';
-import Modal from 'seed/components/helpers/Modal';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/stats/Panel.module.css';
+import React from "react";
+import cx from "classnames";
+import { Route } from "react-router-dom";
+import StatDetails from "examples/stats/Details";
+import StatList from "examples/stats/List";
+import StatListOptions from "examples/stats/options/List";
+import StatDetailsOptions from "examples/stats/options/Details";
+import StatForm from "examples/stats/Form";
+import Modal from "seed/components/helpers/Modal";
+import styles from "resources/css/examples/stats/Panel.module.css";
 
 function StatPanel(props)
 {
   const { path, url } = props.match;
 
-  const List = props =>
+  const List = (props) =>
     <div className={styles.list}>
       <div className={styles.options}>
         <StatListOptions {...props}/>
@@ -25,7 +23,7 @@ function StatPanel(props)
       </div>
     </div>;
 
-  const Details = props =>
+  const Details = (props) =>
     <div className={styles.details}>
       <div className={styles.card}>
         <div className={styles.options}>
@@ -37,7 +35,7 @@ function StatPanel(props)
       </div>
     </div>;
 
-  const Form = props =>
+  const Form = (props) =>
     <Modal {...props}>
       <StatForm {...props} />
     </Modal>;

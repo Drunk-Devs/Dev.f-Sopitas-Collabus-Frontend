@@ -1,10 +1,9 @@
-import React from 'react';
-import { useDelete } from 'seed/gql';
-import * as queries from 'seed/gql/queries';
-import { Link } from 'react-router-dom';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/businesses/options/Details.module.css';
+import React from "react";
+import cx from "classnames";
+import { useDelete } from "seed/gql";
+import * as queries from "seed/gql/queries";
+import { Link } from "react-router-dom";
+import styles from "resources/css/examples/businesses/options/Details.module.css";
 
 function BusinessDetailsOptions(props)
 {
@@ -13,21 +12,21 @@ function BusinessDetailsOptions(props)
 
     const [callDelete, qDelete] = useDelete(queries.DELETE_BUSINESS,
     {
-      onCompleted: data =>
+      onCompleted: (data) =>
       {
-        const backUrl = url.substring(0, url.lastIndexOf('/'));
+        const backUrl = url.substring(0, url.lastIndexOf("/"));
         props.history.push(backUrl);
-       }
-    })
+      }
+    });
 
     const onClickDelete = () =>
-      callDelete({ id: business_id })
+      callDelete({ id: business_id });
 
     const onClickBack = () =>
     {
-      const backUrl = url.substring(0, url.lastIndexOf('/'));
+      const backUrl = url.substring(0, url.lastIndexOf("/"));
       props.history.push(backUrl);
-    }
+    };
 
     return (
       <div className={styles.module}>

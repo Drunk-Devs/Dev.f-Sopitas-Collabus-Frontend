@@ -3,7 +3,7 @@ __Seed builder__v0.1.8
   (Read_only) Builder helper
 */
 
-import * as Const from 'seed/helpers/redux_const';
+import * as Const from "seed/helpers/redux_const";
 
 class Reducer
 {
@@ -73,12 +73,12 @@ class Reducer
         return {
           value: dataset[i],
           pos: i
-        }
+        };
     }
     return {
       value: null,
       pos: -1
-    }
+    };
   }
 
   mergeDataset(original, dataset)
@@ -100,7 +100,7 @@ class Reducer
     return {
       changed: changed,
       dataset: result
-    }
+    };
   }
 }
 export default Reducer;

@@ -1,21 +1,19 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-
-import UserDetails from 'examples/users/Details';
-import UserList from 'examples/users/List';
-import UserListOptions from 'examples/users/options/List';
-import UserDetailsOptions from 'examples/users/options/Details';
-import UserForm from 'examples/users/Form';
-import Modal from 'seed/components/helpers/Modal';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/users/Panel.module.css';
+import React from "react";
+import cx from "classnames";
+import { Route } from "react-router-dom";
+import UserDetails from "examples/users/Details";
+import UserList from "examples/users/List";
+import UserListOptions from "examples/users/options/List";
+import UserDetailsOptions from "examples/users/options/Details";
+import UserForm from "examples/users/Form";
+import Modal from "seed/components/helpers/Modal";
+import styles from "resources/css/examples/users/Panel.module.css";
 
 function UserPanel(props)
 {
   const { path, url } = props.match;
 
-  const List = props =>
+  const List = (props) =>
     <div className={styles.list}>
       <div className={styles.options}>
         <UserListOptions {...props}/>
@@ -25,7 +23,7 @@ function UserPanel(props)
       </div>
     </div>;
 
-  const Details = props =>
+  const Details = (props) =>
     <div className={styles.details}>
       <div className={styles.card}>
         <div className={styles.options}>
@@ -37,7 +35,7 @@ function UserPanel(props)
       </div>
     </div>;
 
-  const Form = props =>
+  const Form = (props) =>
     <Modal {...props}>
       <UserForm {...props} />
     </Modal>;

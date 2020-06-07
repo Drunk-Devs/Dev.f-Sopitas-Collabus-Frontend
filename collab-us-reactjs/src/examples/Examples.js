@@ -1,12 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-
-import Login from 'examples/general/auth/Login';
-import Logout from 'examples/general/auth/Logout';
-import Home from 'examples/Home';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/Examples.module.css';
+import React from "react";
+import cx from "classnames";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import Login from "examples/auth/Login";
+import Logout from "examples/auth/Logout";
+import Analytics from "examples/nav/Analytics";
+import Home from "examples/Home";
+import styles from "resources/css/examples/Examples.module.css";
 
 function Examples(props)
 {
@@ -23,6 +22,8 @@ function Examples(props)
             component={Home} />
           <Redirect to={`${path}/app`} />
         </Switch>
+        <Route path={"/"}
+          component={Analytics} />
       </Router>
     </div>
   );

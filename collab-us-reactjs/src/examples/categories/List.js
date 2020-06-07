@@ -1,11 +1,9 @@
-import React from 'react';
-import { useQuery } from 'seed/gql'
-import { NavLink } from 'react-router-dom';
-
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/categories/List.module.css';
+import React from "react";
+import cx from "classnames";
+import { useQuery } from "seed/gql";
+import { NavLink } from "react-router-dom";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/categories/List.module.css";
 
 const CATEGORIES  = `
 {
@@ -13,7 +11,7 @@ const CATEGORIES  = `
     name
   }
 }
-`
+`;
 
 function CategoryList(props)
 {
@@ -21,10 +19,10 @@ function CategoryList(props)
 
   const qCategories = useQuery(CATEGORIES);
 
-  if (qCategories.loading) return <Loading />
-  if (qCategories.error) return "Error"
+  if (qCategories.loading) return <Loading />;
+  if (qCategories.error) return "Error";
 
-  const { categories } = qCategories.data
+  const { categories } = qCategories.data;
 
   const categoryList = categories.map(item =>
     <NavLink

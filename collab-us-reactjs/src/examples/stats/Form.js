@@ -1,20 +1,18 @@
-import React, {useState} from 'react';
-import { useSave, useSet, useQuery, useDetail } from 'seed/gql'
-import * as queries from 'seed/gql/queries'
-import { Formik, Field } from 'formik';
-
-import MultiField from 'seed/components/helpers/MultiField'
-import FileField from 'seed/components/helpers/FileField'
-import Loading from 'seed/components/helpers/Loading';
-
-import cx from 'classnames';
-import styles from 'resources/css/examples/stats/Form.module.css';
+import React, {useState} from "react";
+import cx from "classnames";
+import { useSave, useSet, useQuery, useDetail } from "seed/gql";
+import * as queries from "seed/gql/queries";
+import { Formik, Field } from "formik";
+import MultiField from "seed/components/helpers/MultiField";
+import FileField from "seed/components/helpers/FileField";
+import Loading from "seed/components/helpers/Loading";
+import styles from "resources/css/examples/stats/Form.module.css";
 
 const USERS  = `
 {
   users { }
 }
-`
+`;
 
 function StatForm(props)
 {
@@ -25,12 +23,12 @@ function StatForm(props)
   const editMode = stat_id != null;
 
   const saveOptions = {
-    onCompleted: data =>
+    onCompleted: (data) =>
     {
-      const backUrl = url.substring(0, url.lastIndexOf('/'));
+      const backUrl = url.substring(0, url.lastIndexOf("/"));
       props.history.push(backUrl);
     },
-    onError: error => setState({ error: 'An error has occurred, try again' })
+    onError: (error) => setState({ error: "An error has occurred, try again" })
   };
 
   const [callSave, qSave] = useSave(queries.SAVE_STAT, saveOptions);
@@ -42,12 +40,12 @@ function StatForm(props)
   if (editMode && qStat.loading) return <Loading />;
   if (editMode && qStat.error) return "Error";
 
-  const onSubmit = values =>
+  const onSubmit = (values) =>
   {
     values.id = stat_id;
     if (editMode) callSet(values);
     else callSave(values);
-  }
+  };
 
   const { stat = {} } = qStat.data;
   const { users = [] } = qUsers.data;
@@ -59,7 +57,7 @@ function StatForm(props)
         <Formik
            initialValues={stat}
            onSubmit={onSubmit}
-           render={f => (
+           render={(f) => (
 
         <form onSubmit={f.handleSubmit}>
           
