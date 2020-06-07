@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cx from "classnames";
 import { usePost } from "seed/api";
 import styles from "resources/css/examples/auth/Login.module.css";
-
+import LoginAuth from '../../loginAuth';
 function Login(props)
 {
   const [state, setState] = useState(0);
@@ -26,33 +26,51 @@ function Login(props)
 
   return (
     <div className={styles.module}>
-      <div className={styles.background}
-        style={ { backgroundImage: `url(${require("resources/images/wave.svg")})` }}>
+      <div
+        className={styles.background}
+        style={{
+          backgroundImage: `url(${require("resources/images/wave.svg")})`,
+        }}
+      >
+        
         <div className={cx(styles.container, "animated zoomIn")}>
+          <label className={styles.title}>Login</label>
+          <form onSubmit={onSubmit}>
+            <label className={styles.emailLbl}>Email</label>
+            <br />
+            <input
+              className={styles.email}
+              name="email"
+              type="email"
+              required
+            />
+            <br />
+            <label className={styles.passwordLbl}>Password</label>
+            <br />
+            <input
+              className={styles.password}
+              name="password"
+              type="password"
+              required
+            />
+            <br />
+            <input
+              className={styles.remember}
+              name="remember"
+              type="checkbox"
+            />
+            <label className={styles.rememberLbl}>Remember me</label>
+            <br />
+            {state.error ? (
+              <div className={styles.error}>{state.error}</div>
+            ) : null}
+            <button type="submit" className={styles.submit}>
+              Login
+            </button>
+          </form>
 
-            <label className={styles.title}>Login</label>
-            <form onSubmit={onSubmit}>
-              <label className={styles.emailLbl}>Email</label><br/>
-              <input className={styles.email}
-                name="email"
-                type="email"
-                required /><br/>
-              <label className={styles.passwordLbl}>Password</label><br/>
-              <input className={styles.password}
-                name="password"
-                type="password"
-                required /><br/>
-              <input className={styles.remember}
-                name="remember"
-                type="checkbox" />
-              <label className={styles.rememberLbl}>Remember me</label><br/>
-              {state.error ?
-                <div className={styles.error}>{state.error}</div> : null}
-              <button type="submit" className={styles.submit}>Login</button>
-            </form>
-
+          <LoginAuth/>
         </div>
-
       </div>
     </div>
   );
