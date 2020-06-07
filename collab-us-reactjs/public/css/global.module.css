@@ -1,0 +1,443 @@
+:root {
+	/* Colores de botones */
+	--azul-botones: #3498DB;
+	--rojo-botones: #E74C3C;
+	--verde-botones: #2ECC71;
+	--input-color: #F2F2F2;
+	--oscuro-botones: #2C3E50;
+
+	/* Colores de los elementos*/
+	--dark-header: #4A3872;
+	--full-background: #D7D7D7;
+
+	/* Colores de las fuentes */
+	--title-color: #000000;
+	--subtitle-color: #333333;
+	--subtitle-color-1: #555555;
+	--placeholder-color: #7F7F7F;
+	--bare-visible-color: #AAAAAA;
+	--link-colors: #0071CA; 
+	--white-elemets: #FFFFFF;
+
+	--barely-perceptible-color: #D7D7D7;
+	--invisble-color: #F2F2F2;
+
+	/* Colores de los iconos */
+	--trust-color: #EE6071;
+	--numbers-colors: #1D3BFF;
+	--social-media-icon-w: #70B603;
+	--social-media-f: #0000BF;
+}
+
+@font-face {
+    font-family: 'abangregular';
+    src: url('../font/abang-webfont.woff2') format('woff2'),
+         url('../font/abang-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+input[type=text], input[type=password], input[type=mail], input[type=pasword], input[type=number], input[type=number], input[type=time], input[type=phone], textarea, select {
+	background-color: var(--input-color)!important;
+}
+
+input[type="number"], input[type="date"] {
+    -moz-appearance: textarea!important;
+} 
+
+textarea {
+  resize: none!important;
+}
+
+.app-large-textarea {
+	height: 20vh!important;
+}
+
+.app-image {
+	width: 50%;
+	-webkit-filter: invert(1);
+   	filter: invert(1);
+}
+
+.app-name {
+	font-family: 'abangregular', 'Trebuchet MS';
+	color: var(--white-elemets);
+}
+
+.app-non-escencial-text {
+	color: var(--bare-visible-color);
+}
+
+.app-pyme-name {
+	font-size: 1.5em;
+	font-weight: semibold;
+}
+
+.app-pyme-name-smaller {
+	font-size: 1.3em;
+	font-weight: semibold;
+}
+
+.app-button {
+	background: none;
+	color: var(--white-elemets);
+}
+
+.app-button:hover {
+	background: var(--white-elemets);
+	color: var(--placeholder-color)!important;
+	transition: all 0.5s;
+}
+
+.app-button-google {
+	background-color: var(--rojo-botones)!important;
+	color: var(--white-elemets);
+}
+
+.app-button-azul {
+	background-color: var(--azul-botones)!important;
+	color: var(--white-elemets);
+}
+
+.app-button-oscuro {
+	background-color: var(--oscuro-botones)!important;
+	color: var(--white-elemets);
+}
+
+.app-button-verde {
+	background-color: var(--verde-botones);
+	color: var(--white-elemets);
+}
+
+.app-enlace {
+	color: var(--link-colors);
+}
+
+.app-enlace:hover {
+	text-decoration: underline;
+	color: var(--link-colors)!important;
+}
+
+.app-enlace-blanco {
+	color: var(--white-elemets);
+}
+
+.app-enlace-blanco:hover {
+	color: var(--white-elemets);
+}
+
+.app-enlace-blanco:active {
+	color: var(--white-elemets);
+}
+
+.app-divide-text { 
+	color: var(--white-elemets);
+	display: flex; 
+	flex-direction: row; 
+} 
+
+.app-divide-text:before, 
+.app-divide-text:after { 
+	content: ""; 
+	flex: 1 1; 
+	border-bottom: 1px solid #FFF;
+	margin: auto; 
+}
+
+.app-gradient {
+	background-image: url('../images/gradient.jpg');
+	background-size: 100% 100%;
+	background-repeat: none;
+	background-attachment: fixed;
+}
+
+.app-container {
+	position: relative;
+}
+
+.app-total-center {
+	margin: 0;
+	position: absolute;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+.app-header {
+	background-color: var(--dark-header);
+}
+
+.app-background {
+	background-color: var(--input-color)!important;
+}
+
+.app-background-darker {
+	background-color: var(--barely-perceptible-color)!important;
+}
+
+.app-half-circle {
+    width: 100px;
+    height: 50px;
+    background-color: var(--white-elemets); 
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.app-trust-level-full {
+	color: var(--trust-color);
+	-webkit-text-stroke: 2px var(--trust-color);
+}
+
+.app-trust-level-empty {
+	color: var(--white-elemets);
+	-webkit-text-stroke: 2px var(--trust-color);
+}
+
+.app-blue-numbers {
+	color: var(--numbers-colors);
+}
+
+.app-darker-text {
+	color: var(--subtitle-color-1);
+}
+
+.app-theme-text {
+	color: var(--dark-header);
+}
+
+.app-lighter-text {
+	color: var(--barely-perceptible-color);
+}
+
+/* Contenedor del Toggle Switch */
+
+.app-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Esconder el checkbox */
+.app-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* El slider */
+.app-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+.app-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .app-slider {
+  background-color: var(--oscuro-botones);
+}
+
+input:focus + .app-slider {
+  box-shadow: 0 0 1px var(--oscuro-botones);
+}
+
+input:checked + .app-slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Redondeado del slider */
+.app-slider.app-rounded-toggle {
+  border-radius: 34px;
+}
+
+.app-slider.app-rounded-toggle:before {
+  border-radius: 50%;
+}
+
+
+
+
+/* Overlay de form sobre mapa */
+
+.app-overlay-container {
+	position: relative;
+}
+
+.app-overlay-map, .app-overlay-form {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.app-overlay-form {
+	margin-top: 10px;
+	z-index: 10;	
+}
+
+
+
+
+/* Mapa */
+
+.app-mapa-responsive{
+    overflow:hidden;
+    padding-bottom: 100%;
+    position: relative;
+    height:0;
+}
+
+.app-mapa-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* button */
+::-webkit-scrollbar-button {
+    background: #222; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #333; 
+}
+
+/* Handle para hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #666; 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #000; 
+}
+
+/* El track no cubierto por el handle. */ 
+::-webkit-scrollbar-track-piece {
+    background: #000; 
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+    background: #999; 
+}
+
+/* Resizer */
+::-webkit-resizer {
+    background: #111; 
+}
+
+/* Slider */
+
+/* Contenedor del slide */
+.app-slides-container {
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Ocultar contenedores por defecto */
+.app-slide {
+  display: none;
+}
+
+/* Animación de fading */
+.app-fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.app-half-rotate {
+	transform: rotate(180deg);
+}
+
+
+/* Range Slider */ 
+
+.app-range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;  
+  background: var(--barely-perceptible-color);
+}
+
+.app-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; 
+  background: var(--link-colors);
+  border: 3px solid var(--barely-perceptible-color);
+  cursor: pointer;
+}
+
+.app-range-slider::-moz-range-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--link-colors);
+  cursor: pointer;
+}
+
+.app-background-rojo {
+	background: var(--rojo-botones);
+}
+
+/* .app-range-slider::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 20px;
+	border-radius: 10px;
+	background-color: var(--dark-header);
+}
+*/

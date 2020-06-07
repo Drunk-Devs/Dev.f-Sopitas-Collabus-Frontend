@@ -16,6 +16,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { SeedProvider } from "seed/context";
 
 import "index.css";
+import './resources/bootstrap-4.5.0/css/bootstrap.min.css'
 
 const store = Store();
 const muiTheme = MuiTheme();

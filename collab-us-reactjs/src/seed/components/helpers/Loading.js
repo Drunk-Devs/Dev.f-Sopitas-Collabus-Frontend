@@ -5,7 +5,6 @@ __Seed builder__v0.1.8
 
 import React from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import styles from "resources/css/seed/helpers/Loading.module.css";
 
 
 class Loading extends React.Component

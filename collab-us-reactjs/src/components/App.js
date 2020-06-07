@@ -1,18 +1,22 @@
 import React from "react";
-import cx from "classnames";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import Examples from "examples/Examples";
-import styles from "resources/css/App.module.css";
+
+import Home from "./Home";
+import Login from 'components/auth/Login';
+import Logout from 'components/auth/Logout';
+
+import '../resources/bootstrap-4.5.0/css/bootstrap.min.css'
 
 function App(props)
 {
   return (
-    <div className={styles.module}>
+    <div>
       <Router>
         <Switch>
-          <Route path="/examples"
-            component={Examples} />
-          <Redirect to="/examples" />
+          <Route path={`/app`} component={Home} />
+          <Route path={`/login`} component={Login} />
+          <Route path={`/logout`} component={Logout} />
+          <Redirect to={`/app`} />
         </Switch>
       </Router>
     </div>
